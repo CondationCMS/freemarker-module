@@ -22,6 +22,10 @@ package com.github.thmarx.cms.modules.freemarker;
  * #L%
  */
 
+import com.github.thmarx.cms.api.ServerProperties;
+import com.github.thmarx.cms.api.feature.features.DBFeature;
+import com.github.thmarx.cms.api.feature.features.ServerPropertiesFeature;
+import com.github.thmarx.cms.api.feature.features.ThemeFeature;
 import com.github.thmarx.cms.api.module.CMSModuleContext;
 import com.github.thmarx.modules.api.ModuleLifeCycleExtension;
 import com.github.thmarx.modules.api.annotation.Extension;
@@ -41,7 +45,11 @@ public class FreemarkerLifecycleExtension extends ModuleLifeCycleExtension<CMSMo
 
 	@Override
 	public void activate() {
-		templateEngine = new FreemarkerTemplateEngine(getContext().getDb(), getContext().getServerProperties(), getContext().getTheme());
+		templateEngine = new FreemarkerTemplateEngine(
+				getContext().get(DBFeature.class).db(), 
+				getContext().get(ServerPropertiesFeature.class).serverProperties(), 
+				getContext().get(ThemeFeature.class).theme()
+		);
 	}
 
 	@Override
