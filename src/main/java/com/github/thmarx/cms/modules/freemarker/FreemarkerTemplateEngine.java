@@ -22,7 +22,6 @@ package com.github.thmarx.cms.modules.freemarker;
  * #L%
  */
 
-import com.github.thmarx.cms.api.ModuleFileSystem;
 import com.github.thmarx.cms.api.ServerProperties;
 import com.github.thmarx.cms.api.db.DB;
 import com.github.thmarx.cms.api.db.DBFileSystem;
@@ -46,9 +45,11 @@ public class FreemarkerTemplateEngine implements TemplateEngine {
 
 	private final Configuration config;
 
+	private final DB db;
 
 	public FreemarkerTemplateEngine(final DB db, final ServerProperties serverProperties, final Theme theme) {
 		
+		this.db = db;
 		config = new Configuration(Configuration.VERSION_2_3_32);
 
 		try {
@@ -92,8 +93,7 @@ public class FreemarkerTemplateEngine implements TemplateEngine {
 
 	@Override
 	public String render(final String template, final FreemarkerTemplateEngine.Model model) throws IOException {
-		StringWriter out = new StringWriter();
-		try {
+		try (StringWriter out = new StringWriter()) {
 			Template loadedTemplate = config.getTemplate(template);
 
 			loadedTemplate.process(model.values, out);
@@ -101,8 +101,6 @@ public class FreemarkerTemplateEngine implements TemplateEngine {
 			return out.toString();
 		} catch (TemplateException | IOException e) {
 			throw new IOException(e);
-		} finally {
-			out.close();
 		}
 	}
 
@@ -111,4 +109,13 @@ public class FreemarkerTemplateEngine implements TemplateEngine {
 		config.clearTemplateCache();
 	}
 
+	@Override
+	public void updateTheme(Theme theme) {
+		try {
+			config.setTemplateLoader(createTemplateLoader(db.getFileSystem(), theme));
+		} catch (IOException ex) {
+			throw new RuntimeException(ex);
+		}
+	}
+	
 }
