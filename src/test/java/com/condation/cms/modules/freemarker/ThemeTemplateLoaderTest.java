@@ -1,10 +1,10 @@
-package com.github.thmarx.cms.modules.freemarker;
+package com.condation.cms.modules.freemarker;
 
 /*-
  * #%L
  * freemarker-module
  * %%
- * Copyright (C) 2023 Marx-Software
+ * Copyright (C) 2024 CondationCMS
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as
@@ -21,6 +21,7 @@ package com.github.thmarx.cms.modules.freemarker;
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
+
 
 import freemarker.cache.MultiTemplateLoader;
 import freemarker.cache.TemplateLoader;
