@@ -1,10 +1,10 @@
-package com.github.thmarx.cms.modules.freemarker;
+package com.condation.cms.modules.freemarker;
 
 /*-
  * #%L
- * example-module
+ * freemarker-module
  * %%
- * Copyright (C) 2023 Marx-Software
+ * Copyright (C) 2024 CondationCMS
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as
@@ -22,9 +22,10 @@ package com.github.thmarx.cms.modules.freemarker;
  * #L%
  */
 
-import com.github.thmarx.cms.api.extensions.TemplateEngineProviderExtentionPoint;
-import com.github.thmarx.cms.api.template.TemplateEngine;
-import com.github.thmarx.modules.api.annotation.Extension;
+
+import com.condation.cms.api.extensions.TemplateEngineProviderExtentionPoint;
+import com.condation.cms.api.template.TemplateEngine;
+import com.condation.modules.api.annotation.Extension;
 
 /**
  *
