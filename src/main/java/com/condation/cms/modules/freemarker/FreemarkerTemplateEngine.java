@@ -41,6 +41,7 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class FreemarkerTemplateEngine implements TemplateEngine {
 
@@ -104,6 +105,21 @@ public class FreemarkerTemplateEngine implements TemplateEngine {
 			throw new IOException(e);
 		}
 	}
+
+	@Override
+	public String renderFromString(String templateString, Model model) throws IOException {
+		try (StringWriter out = new StringWriter()) {
+			Template loadedTemplate = new Template(UUID.randomUUID().toString(), templateString, config);
+
+			loadedTemplate.process(model.values, out);
+
+			return out.toString();
+		} catch (TemplateException | IOException e) {
+			throw new IOException(e);
+		}
+	}
+	
+	
 
 	@Override
 	public void invalidateCache() {
