@@ -87,6 +87,10 @@ public class FreemarkerTemplateEngine implements TemplateEngine {
 		
 		if (!theme.empty()) {
 			loaders.add(new FileTemplateLoader(theme.templatesPath().toFile()));
+			
+			if (theme.getParentTheme() != null) {
+				loaders.add(new FileTemplateLoader(theme.getParentTheme().templatesPath().toFile()));
+			}	
 		}
 		return new MultiTemplateLoader(
 				loaders.toArray(TemplateLoader[]::new)
