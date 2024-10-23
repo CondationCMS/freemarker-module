@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.condation.cms.modules</groupId>
 	<artifactId>freemarker-module</artifactId>
-	<version>3.2.0</version>
+	<version>4.0.0</version>
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<cms.version>6.4.0</cms.version>
+		<cms.version>7.0.0</cms.version>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 	
