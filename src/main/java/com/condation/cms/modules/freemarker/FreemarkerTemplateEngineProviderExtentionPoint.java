@@ -23,7 +23,7 @@ package com.condation.cms.modules.freemarker;
  */
 
 
-import com.condation.cms.api.extensions.TemplateEngineProviderExtentionPoint;
+import com.condation.cms.api.extensions.TemplateEngineProviderExtensionPoint;
 import com.condation.cms.api.template.TemplateEngine;
 import com.condation.modules.api.annotation.Extension;
 
@@ -31,8 +31,8 @@ import com.condation.modules.api.annotation.Extension;
  *
  * @author t.marx
  */
-@Extension(TemplateEngineProviderExtentionPoint.class)
-public class FreemarkerTemplateEngineProviderExtentionPoint extends TemplateEngineProviderExtentionPoint {
+@Extension(TemplateEngineProviderExtensionPoint.class)
+public class FreemarkerTemplateEngineProviderExtentionPoint extends TemplateEngineProviderExtensionPoint {
 
 	
 	
