@@ -32,7 +32,7 @@ import com.condation.modules.api.annotation.Extension;
  * @author t.marx
  */
 @Extension(TemplateEngineProviderExtensionPoint.class)
-public class FreemarkerTemplateEngineProviderExtentionPoint extends TemplateEngineProviderExtensionPoint {
+public class FreemarkerTemplateEngineProviderExtensionPoint extends TemplateEngineProviderExtensionPoint {
 
 	
 	
